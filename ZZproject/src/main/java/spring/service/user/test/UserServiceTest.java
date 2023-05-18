@@ -1,4 +1,4 @@
-Ôªøpackage spring.service.user.test;
+package spring.service.user.test;
 
 //
 //import org.junit.Assert;
@@ -21,22 +21,22 @@ import spring.service.user.UserService;
 
 /*
  *	FileName :  UserServiceTest.java
- * „Öá JUnit4 (Test Framework) Í≥º Spring Framework ÌÜµÌï© Test( Unit Test)
- * „Öá Spring ÏùÄ JUnit 4Î•º ÏúÑÌïú ÏßÄÏõê ÌÅ¥ÎûòÏä§Î•º ÌÜµÌï¥ Ïä§ÌîÑÎßÅ Í∏∞Î∞ò ÌÜµÌï© ÌÖåÏä§Ìä∏ ÏΩîÎìúÎ•º ÏûëÏÑ± Ìï† Ïàò ÏûàÎã§.
- * „Öá @RunWith : Meta-data Î•º ÌÜµÌïú wiring(ÏÉùÏÑ±,DI) Ìï† Í∞ùÏ≤¥ Íµ¨ÌòÑÏ≤¥ ÏßÄÏ†ï
- * „Öá @ContextConfiguration : Meta-data location ÏßÄÏ†ï
- * „Öá @Test : ÌÖåÏä§Ìä∏ Ïã§Ìñâ ÏÜåÏä§ ÏßÄÏ†ï
+ * §∑ JUnit4 (Test Framework) ∞˙ Spring Framework ≈Î«’ Test( Unit Test)
+ * §∑ Spring ¿∫ JUnit 4∏¶ ¿ß«— ¡ˆø¯ ≈¨∑°Ω∫∏¶ ≈Î«ÿ Ω∫«¡∏µ ±‚π› ≈Î«’ ≈◊Ω∫∆Æ ƒ⁄µÂ∏¶ ¿€º∫ «“ ºˆ ¿÷¥Ÿ.
+ * §∑ @RunWith : Meta-data ∏¶ ≈Î«— wiring(ª˝º∫,DI) «“ ∞¥√º ±∏«ˆ√º ¡ˆ¡§
+ * §∑ @ContextConfiguration : Meta-data location ¡ˆ¡§
+ * §∑ @Test : ≈◊Ω∫∆Æ Ω««‡ º“Ω∫ ¡ˆ¡§
  */
 
-//======================  Î≥ÄÍ≤ΩÎêú Î∂ÄÎ∂Ñ ====================
+//======================  ∫Ø∞Êµ» ∫Œ∫– ====================
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(locations = { "classpath:config/commonservice.xml" })
 @SpringBootTest
-//testÌïòÍ∏∞ ÏúÑÌïú anotation
+//test«œ±‚ ¿ß«— anotation
 public class UserServiceTest {
 
-	//==>@RunWith,@ContextConfiguration Î°ú ÏßÄÏ†ïÎêú Íµ¨ÌòÑÏ≤¥Í∞Ä  Meta-data Î•º Ïù¥Ïö© Wiring
-	//==> Ìïú Í∞Å Í∞ùÏ≤¥Î•º Injection Ìï®
+	//==>@RunWith,@ContextConfiguration ∑Œ ¡ˆ¡§µ» ±∏«ˆ√º∞°  Meta-data ∏¶ ¿ÃøÎ Wiring
+	//==> «— ∞¢ ∞¥√º∏¶ Injection «‘
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
@@ -45,18 +45,18 @@ public class UserServiceTest {
 	@Qualifier("userDao")
 	private UserDao userDAO;
 
-	//==> TestÌï† ÏΩîÎìú ÏûëÏÑ±
-	@Test
+	//==> Test«“ ƒ⁄µÂ ¿€º∫
+	//@Test
 	public void testAddUser() throws Exception {
 		
 		System.out.println("\n===================================");
-		User user = new User("user04","Ï£ºÎ™Ω","user04",null,0);
-		System.out.println("insert Í≤∞Í≥º : "+userService.addUser(user));
-		System.out.println("delete Í≤∞Í≥º : "+ userDAO.removeUser(user.getUserId()));
+		User user = new User("user04","¡÷∏˘","user04",null,0);
+		System.out.println("insert ∞·∞˙ : "+userService.addUser(user));
+		System.out.println("delete ∞·∞˙ : "+ userDAO.removeUser(user.getUserId()));
 		
-		//====> Î≥ÄÍ≤ΩÎêú Î∂ÄÎ∂Ñ JUnit 5.X Î≥ÄÍ≤®ÏúºÎ°ú Ïù∏Ìïú Test API Î≥ÄÍ≤Ω====================//
-		//==> APIÌôïÏù∏ :: Ï£ºÏÑùÏùÑ ÌíÄÍ≥† ÌôïÏù∏ÌïòÎ©¥...
-		//==> ÏïÑÎûòÏùò 1ÏùÑ 0ÏúºÎ°ú Î≥ÄÍ≤Ω Ìï¥Î≥¥Î©¥...
+		//====> ∫Ø∞Êµ» ∫Œ∫– JUnit 5.X ∫Ø∞‹¿∏∑Œ ¿Œ«— Test API ∫Ø∞Ê====================//
+		//==> API»Æ¿Œ :: ¡÷ºÆ¿ª «Æ∞Ì »Æ¿Œ«œ∏È...
+		//==> æ∆∑°¿« 1¿ª 0¿∏∑Œ ∫Ø∞Ê «ÿ∫∏∏È...
 		//Assert.assertEquals(1, userService.addUser(user));
 		//Assert.assertEquals(1, userDAO.removeUser(user.getUserId()));
 		Assertions.assertEquals(1, userService.addUser(user));
@@ -66,7 +66,7 @@ public class UserServiceTest {
 
 	}
 	
-	//==> @TestÎ•º Ï£ºÏÑùÏ≤òÎ¶¨ ÌïòÍ≥† Ïã§ÌñâÌïòÎ©¥....
+	//==> @Test∏¶ ¡÷ºÆ√≥∏Æ «œ∞Ì Ω««‡«œ∏È....
 	//==> 
 	//@Test
 	public void testGetUser() throws Exception {
@@ -75,7 +75,7 @@ public class UserServiceTest {
 		User user = userService.getUser("user01");
 		System.out.println(user);
 		
-		//==> APIÌôïÏù∏ :: Ï£ºÏÑùÏùÑ ÌíÄÍ≥† ÌôïÏù∏ÌïòÎ©¥...
+		//==> API»Æ¿Œ :: ¡÷ºÆ¿ª «Æ∞Ì »Æ¿Œ«œ∏È...
 		//Assert.assertEquals("user01",user.getUserId());
 		//Assert.assertEquals("user0",user.getUserId());
 		//Assert.assertNotNull(userService.getUser("user02"));
@@ -84,15 +84,15 @@ public class UserServiceTest {
 
 	}
 	
-	//==>  Ï£ºÏÑùÏùÑ ÌíÄÍ≥† Ïã§ÌñâÌïòÎ©¥....
+	//==>  ¡÷ºÆ¿ª «Æ∞Ì Ω««‡«œ∏È....
 	 //@Test
 	 public void testGetUserList() throws Exception{
-	 	//==> Test code ÏûëÏÑ±
+	 	//==> Test code ¿€º∫
 	 }
 
-	 //==>  Ï£ºÏÑùÏùÑ ÌíÄÍ≥† Ïã§ÌñâÌïòÎ©¥....
+	 //==>  ¡÷ºÆ¿ª «Æ∞Ì Ω««‡«œ∏È....
 	 //@Test
 	 public void testUpdateUser() throws Exception{
-	 	//==> Test code ÏûëÏÑ±
+	 	//==> Test code ¿€º∫
 	 }
 }
